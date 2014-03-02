@@ -17,29 +17,67 @@
 #include "SDL2_image/SDL_image.h"
 #include "SDL2_ttf/SDL_ttf.h"
 #include "SDL2_mixer/SDL_mixer.h"
-#include "GameState.h"
+
+//kind of hacky
+class GameState{
+public:
+    virtual void init() = 0;
+    virtual void cleanUp() = 0;
+    
+    virtual void pause() = 0;
+    virtual void resume() = 0;
+    
+    virtual void handleEvents() = 0;
+    virtual void update() = 0;
+    virtual void draw() = 0;
+    
+    
+protected:
+    GameState() {}
+};
 
 class GameEngine{
+    
 public:
-    void init(std::string);
+   
+    //Initialize SDL subsystem, game window, and renderers, and SDL modules(SDL_image)
+    void init(std::string, int winWidth = 640, int winHeight = 480);
+    
+    //Quit the SDL subsystem and modules, destroy game window and renderer,
     void cleanUp();
     
+    //Change to a particular state
     void changeState(GameState* state);
+    
+    //Wrap state in unique_ptr and push the state onto the stack
     void pushState(GameState* state);
+    
+    //Pop a state off of the stack
     void popState();
     
+/*
+ * The handleEvents() method and the update() method are used in conjunction to update the current game state.
+ * handeEvents calls the current states handleEvents, which is an SDL_Event polling loop.
+ * update calls the current states update() which would handle SDL_Textures and the Renderer.
+ */
     void handleEvents();
     void update();
+    
+    //Update the display, to be subjected to frame rate control using interpolation SDL_RenderPresent(renderer)
     void draw();
     
+    //Control quiting the game.
     bool running() { return mRunning; }
     void quit() { mRunning = false; }
     
 private:
-    //the stack of states
+    //the stack of states, with a unique pointer managing each state's memory. The back of the vector is the top of the stack.
     std::vector<std::unique_ptr<GameState>> states;
     
     bool mRunning;
+    SDL_Window* mWindow;
+    SDL_Renderer* mRenderer;
+    SDL_Rect mBox;
 };
 
 #endif /* defined(__Not_Tetris__GameEngine__) */

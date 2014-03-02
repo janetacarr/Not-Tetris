@@ -9,7 +9,7 @@
 #ifndef Not_Tetris_GameState_h
 #define Not_Tetris_GameState_h
 #include "SDL2/SDL.h"
-
+#include "GameEngine.h"
 class GameState{
 public:
     virtual void init() = 0;
@@ -22,7 +22,9 @@ public:
     virtual void update() = 0;
     virtual void draw() = 0;
     
-    virtual bool changeState();
+    void changeState(GameEngine* game, GameState *state) {
+        game->changeState(state);
+    }
 protected:
     GameState() {}
 };

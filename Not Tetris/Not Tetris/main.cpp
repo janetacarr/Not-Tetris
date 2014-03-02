@@ -11,6 +11,19 @@
 
 int main(int argc, const char * argv[])
 {
+    //Declare and initialize game engine
+    GameEngine game;
     
+    //Initialize SDL, create window and renderer, etc.
+    game.init("Not Tetris");
+    /*
+    while (game.running()) {
+        game.handleEvents();
+        game.update();
+        game.draw();
+    }
+    */
+    game.cleanUp();
+    return 0;
 }
 
