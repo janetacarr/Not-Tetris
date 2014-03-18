@@ -19,22 +19,7 @@
 #include "SDL2_mixer/SDL_mixer.h"
 
 //kind of hacky
-class GameState{
-public:
-    virtual void init() = 0;
-    virtual void cleanUp() = 0;
-    
-    virtual void pause() = 0;
-    virtual void resume() = 0;
-    
-    virtual void handleEvents() = 0;
-    virtual void update() = 0;
-    virtual void draw() = 0;
-    
-    
-protected:
-    GameState() {}
-};
+class GameState;
 
 class GameEngine{
     
@@ -69,6 +54,9 @@ public:
     //Control quiting the game.
     bool running() { return mRunning; }
     void quit() { mRunning = false; }
+    
+    SDL_Window& getWindow();
+    SDL_Renderer& getRenderer();
     
 private:
     //the stack of states, with a unique pointer managing each state's memory. The back of the vector is the top of the stack.

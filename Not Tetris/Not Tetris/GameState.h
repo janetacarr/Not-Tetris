@@ -10,6 +10,7 @@
 #define Not_Tetris_GameState_h
 #include "SDL2/SDL.h"
 #include "GameEngine.h"
+
 class GameState{
 public:
     virtual void init() = 0;
@@ -18,9 +19,9 @@ public:
     virtual void pause() = 0;
     virtual void resume() = 0;
     
-    virtual void handleEvent(SDL_Event* e) = 0;
-    virtual void update() = 0;
-    virtual void draw() = 0;
+    virtual void handleEvents(GameEngine* game) = 0;
+    virtual void update(GameEngine* game) = 0;
+    virtual void draw(GameEngine* game) = 0;
     
     void changeState(GameEngine* game, GameState *state) {
         game->changeState(state);

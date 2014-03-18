@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630F7D8E18D7F9140001DE46 /* TestState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 630F7D8C18D7F9140001DE46 /* TestState.cpp */; };
 		63FD4AF4188A0E2100FA5117 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63FD4AF3188A0E2100FA5117 /* main.cpp */; };
 		63FD4AF6188A0E2100FA5117 /* Not_Tetris.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63FD4AF5188A0E2100FA5117 /* Not_Tetris.1 */; };
 		63FD4AFD188A0E4300FA5117 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4AFC188A0E4300FA5117 /* OpenGL.framework */; };
@@ -31,6 +32,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		630F7D8C18D7F9140001DE46 /* TestState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestState.cpp; sourceTree = "<group>"; };
+		630F7D8D18D7F9140001DE46 /* TestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestState.h; sourceTree = "<group>"; };
 		63FD4AF0188A0E2100FA5117 /* Not Tetris */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Not Tetris"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FD4AF3188A0E2100FA5117 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		63FD4AF5188A0E2100FA5117 /* Not_Tetris.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Not_Tetris.1; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				63FD4B09188CA35500FA5117 /* GameEngine.cpp */,
 				63FD4B0A188CA35500FA5117 /* GameEngine.h */,
 				63FD4B0C188CC6C800FA5117 /* GameState.h */,
+				630F7D8C18D7F9140001DE46 /* TestState.cpp */,
+				630F7D8D18D7F9140001DE46 /* TestState.h */,
 			);
 			path = "Not Tetris";
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63FD4AF4188A0E2100FA5117 /* main.cpp in Sources */,
+				630F7D8E18D7F9140001DE46 /* TestState.cpp in Sources */,
 				63FD4B0B188CA35500FA5117 /* GameEngine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +267,7 @@
 				63FD4AFB188A0E2100FA5117 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
