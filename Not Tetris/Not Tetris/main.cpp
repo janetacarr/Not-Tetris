@@ -8,14 +8,14 @@
 
 #include <iostream>
 #include "GameEngine.h"
-#include "TestState.h"
+#include "InitialState.h"
 
 int main(int argc, const char * argv[])
 {
     const int TICKS_PER_SECOND = 25;
     const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
     const int MAX_FRAMESKIP = 5; //may have to be bigger. like 10 or 12.
-    TestState* test = new TestState();
+    InitialState* test = new InitialState();
     //Declare and initialize game engine
     GameEngine game;
     

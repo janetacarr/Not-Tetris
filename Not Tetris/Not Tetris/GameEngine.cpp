@@ -61,7 +61,10 @@ void GameEngine::pushState(GameState* state) {
 
 //Pop the current state
 void GameEngine::popState() {
-    states.pop_back();
+    if (!states.empty()) {
+        states.back()->cleanUp();
+        states.pop_back();
+    }
 }
 
 //Call the handle events from the state

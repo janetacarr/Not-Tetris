@@ -16,7 +16,15 @@ void TestState::pause() {return;}
 void TestState::resume() {return;}
 
 void TestState::handleEvents(GameEngine* game) {
-    return;
+    SDL_Event e;
+    while (SDL_PollEvent(&e)) {
+        if (e.type == SDL_QUIT) {
+            game->quit();
+        }
+        if (e.key.keysym.sym == SDLK_ESCAPE) {
+            game->quit();
+        }
+    }
 }
 
 void TestState::update(GameEngine* game) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6309EF6918DBC8D900709A0C /* InitialState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6309EF6718DBC8D900709A0C /* InitialState.cpp */; };
 		630F7D8E18D7F9140001DE46 /* TestState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 630F7D8C18D7F9140001DE46 /* TestState.cpp */; };
 		63FD4AF4188A0E2100FA5117 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63FD4AF3188A0E2100FA5117 /* main.cpp */; };
 		63FD4AF6188A0E2100FA5117 /* Not_Tetris.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63FD4AF5188A0E2100FA5117 /* Not_Tetris.1 */; };
@@ -32,6 +33,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6309EF6718DBC8D900709A0C /* InitialState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InitialState.cpp; sourceTree = "<group>"; };
+		6309EF6818DBC8D900709A0C /* InitialState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialState.h; sourceTree = "<group>"; };
 		630F7D8C18D7F9140001DE46 /* TestState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestState.cpp; sourceTree = "<group>"; };
 		630F7D8D18D7F9140001DE46 /* TestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestState.h; sourceTree = "<group>"; };
 		63FD4AF0188A0E2100FA5117 /* Not Tetris */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Not Tetris"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +97,8 @@
 				63FD4B0C188CC6C800FA5117 /* GameState.h */,
 				630F7D8C18D7F9140001DE46 /* TestState.cpp */,
 				630F7D8D18D7F9140001DE46 /* TestState.h */,
+				6309EF6718DBC8D900709A0C /* InitialState.cpp */,
+				6309EF6818DBC8D900709A0C /* InitialState.h */,
 			);
 			path = "Not Tetris";
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6309EF6918DBC8D900709A0C /* InitialState.cpp in Sources */,
 				63FD4AF4188A0E2100FA5117 /* main.cpp in Sources */,
 				630F7D8E18D7F9140001DE46 /* TestState.cpp in Sources */,
 				63FD4B0B188CA35500FA5117 /* GameEngine.cpp in Sources */,
