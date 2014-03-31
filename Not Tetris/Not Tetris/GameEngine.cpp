@@ -17,6 +17,9 @@ void GameEngine::init(std::string title, int winWidth, int winHeight) {
     if (IMG_Init(IMG_INIT_PNG) == -1) {
         throw std::runtime_error("SDL_image init failed");
     }
+    if (TTF_Init() == -1) {
+        throw std::runtime_error("SDL_ttf init failed");
+    }
     
     mBox.x = 0;
     mBox.y = 0;
@@ -98,6 +101,7 @@ void GameEngine::cleanUp() {
     SDL_DestroyWindow(mWindow);
     mRenderer = NULL;
     mWindow = NULL;
+    TTF_Quit();
     IMG_Quit();
     SDL_Quit();
 }

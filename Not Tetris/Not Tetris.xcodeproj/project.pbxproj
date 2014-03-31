@@ -11,12 +11,13 @@
 		630F7D8E18D7F9140001DE46 /* TestState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 630F7D8C18D7F9140001DE46 /* TestState.cpp */; };
 		63FD4AF4188A0E2100FA5117 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63FD4AF3188A0E2100FA5117 /* main.cpp */; };
 		63FD4AF6188A0E2100FA5117 /* Not_Tetris.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63FD4AF5188A0E2100FA5117 /* Not_Tetris.1 */; };
-		63FD4AFD188A0E4300FA5117 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4AFC188A0E4300FA5117 /* OpenGL.framework */; };
-		63FD4B01188A0E6D00FA5117 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4B00188A0E6D00FA5117 /* SDL2_image.framework */; };
-		63FD4B03188A0E8500FA5117 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4B02188A0E8500FA5117 /* SDL2_ttf.framework */; };
-		63FD4B05188A0E9800FA5117 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4B04188A0E9800FA5117 /* SDL2.framework */; };
-		63FD4B07188A0EC300FA5117 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4B06188A0EC300FA5117 /* SDL2_mixer.framework */; };
 		63FD4B0B188CA35500FA5117 /* GameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63FD4B09188CA35500FA5117 /* GameEngine.cpp */; };
+		A6AE7C0118E9BEF300D5C877 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AE7BFE18E9BEF300D5C877 /* SDL2_image.framework */; };
+		A6AE7C0218E9BEF300D5C877 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AE7BFF18E9BEF300D5C877 /* SDL2_mixer.framework */; };
+		A6AE7C0318E9BEF300D5C877 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AE7C0018E9BEF300D5C877 /* SDL2_ttf.framework */; };
+		A6AE7C0918E9E89D00D5C877 /* PlayState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6AE7C0718E9E89D00D5C877 /* PlayState.cpp */; };
+		A6B59F0818E8F62900E714BF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4AFC188A0E4300FA5117 /* OpenGL.framework */; };
+		A6B59F0C18E8F63F00E714BF /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4B04188A0E9800FA5117 /* SDL2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,13 +42,17 @@
 		63FD4AF3188A0E2100FA5117 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		63FD4AF5188A0E2100FA5117 /* Not_Tetris.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Not_Tetris.1; sourceTree = "<group>"; };
 		63FD4AFC188A0E4300FA5117 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		63FD4B00188A0E6D00FA5117 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
-		63FD4B02188A0E8500FA5117 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		63FD4B04188A0E9800FA5117 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
-		63FD4B06188A0EC300FA5117 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
 		63FD4B09188CA35500FA5117 /* GameEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameEngine.cpp; sourceTree = "<group>"; };
 		63FD4B0A188CA35500FA5117 /* GameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
 		63FD4B0C188CC6C800FA5117 /* GameState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		A6AE7BFE18E9BEF300D5C877 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
+		A6AE7BFF18E9BEF300D5C877 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
+		A6AE7C0018E9BEF300D5C877 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
+		A6AE7C0518E9DF1500D5C877 /* somIntro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = somIntro.png; sourceTree = "<group>"; };
+		A6AE7C0618E9DF1500D5C877 /* tetrads.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tetrads.png; sourceTree = "<group>"; };
+		A6AE7C0718E9E89D00D5C877 /* PlayState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayState.cpp; sourceTree = "<group>"; };
+		A6AE7C0818E9E89D00D5C877 /* PlayState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayState.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63FD4B07188A0EC300FA5117 /* SDL2_mixer.framework in Frameworks */,
-				63FD4B03188A0E8500FA5117 /* SDL2_ttf.framework in Frameworks */,
-				63FD4B01188A0E6D00FA5117 /* SDL2_image.framework in Frameworks */,
-				63FD4B05188A0E9800FA5117 /* SDL2.framework in Frameworks */,
-				63FD4AFD188A0E4300FA5117 /* OpenGL.framework in Frameworks */,
+				A6AE7C0118E9BEF300D5C877 /* SDL2_image.framework in Frameworks */,
+				A6AE7C0218E9BEF300D5C877 /* SDL2_mixer.framework in Frameworks */,
+				A6AE7C0318E9BEF300D5C877 /* SDL2_ttf.framework in Frameworks */,
+				A6B59F0C18E8F63F00E714BF /* SDL2.framework in Frameworks */,
+				A6B59F0818E8F62900E714BF /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,10 +74,10 @@
 		63FD4AE7188A0E2100FA5117 = {
 			isa = PBXGroup;
 			children = (
-				63FD4B06188A0EC300FA5117 /* SDL2_mixer.framework */,
+				A6AE7BFE18E9BEF300D5C877 /* SDL2_image.framework */,
+				A6AE7BFF18E9BEF300D5C877 /* SDL2_mixer.framework */,
+				A6AE7C0018E9BEF300D5C877 /* SDL2_ttf.framework */,
 				63FD4B04188A0E9800FA5117 /* SDL2.framework */,
-				63FD4B02188A0E8500FA5117 /* SDL2_ttf.framework */,
-				63FD4B00188A0E6D00FA5117 /* SDL2_image.framework */,
 				63FD4AFC188A0E4300FA5117 /* OpenGL.framework */,
 				63FD4AF2188A0E2100FA5117 /* Not Tetris */,
 				63FD4AF1188A0E2100FA5117 /* Products */,
@@ -99,9 +104,21 @@
 				630F7D8D18D7F9140001DE46 /* TestState.h */,
 				6309EF6718DBC8D900709A0C /* InitialState.cpp */,
 				6309EF6818DBC8D900709A0C /* InitialState.h */,
+				A6AE7C0718E9E89D00D5C877 /* PlayState.cpp */,
+				A6AE7C0818E9E89D00D5C877 /* PlayState.h */,
+				A6AE7C0418E9DF1500D5C877 /* Textures */,
 			);
 			path = "Not Tetris";
 			sourceTree = "<group>";
+		};
+		A6AE7C0418E9DF1500D5C877 /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				A6AE7C0518E9DF1500D5C877 /* somIntro.png */,
+				A6AE7C0618E9DF1500D5C877 /* tetrads.png */,
+			);
+			path = Textures;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -155,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6309EF6918DBC8D900709A0C /* InitialState.cpp in Sources */,
+				A6AE7C0918E9E89D00D5C877 /* PlayState.cpp in Sources */,
 				63FD4AF4188A0E2100FA5117 /* main.cpp in Sources */,
 				630F7D8E18D7F9140001DE46 /* TestState.cpp in Sources */,
 				63FD4B0B188CA35500FA5117 /* GameEngine.cpp in Sources */,
