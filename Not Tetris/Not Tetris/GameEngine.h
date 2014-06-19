@@ -54,6 +54,7 @@ public:
     //Control quiting the game.
     bool running() { return mRunning; }
     void quit() { mRunning = false; }
+    double getTime() {return time;}
     
     SDL_Window& getWindow();
     SDL_Renderer& getRenderer();
@@ -62,6 +63,7 @@ private:
     //the stack of states, with a unique pointer managing each state's memory. The back of the vector is the top of the stack.
     std::vector<std::unique_ptr<GameState>> states;
     
+    int time;
     bool mRunning;
     SDL_Window* mWindow;
     SDL_Renderer* mRenderer;

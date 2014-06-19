@@ -22,10 +22,11 @@ int main(int argc, const char * argv[])
     //Initialize SDL, create window and renderer, etc.
     game.init("Not Tetris");
     game.pushState(test);
+    
     int next_game_tick = SDL_GetTicks();
     int loops;
-    float interpolation;
-    /**/
+   
+    //Main game loop.
     while (game.running()) {
         
         //Control the frequency at which the game is updated.
@@ -33,14 +34,17 @@ int main(int argc, const char * argv[])
         while (SDL_GetTicks() > next_game_tick && loops < MAX_FRAMESKIP) {
             game.handleEvents();
             game.update();
-            
+          
             next_game_tick += SKIP_TICKS;
             loops++;
+            
         }
+        
         //Render as fast as possible on the hardware.
         game.draw();
+        
     }
-    /**/
+    
     game.cleanUp();
     return 0;
 }

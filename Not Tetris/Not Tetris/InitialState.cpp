@@ -64,4 +64,5 @@ void InitialState::draw(GameEngine* game) {
     
     SDL_RenderCopy(&(game->getRenderer()), NewGame, &srcRect, &dstRect);
     SDL_RenderPresent(&(game->getRenderer()));
+    //SDL_RenderClear(&(game->getRenderer()));
 }

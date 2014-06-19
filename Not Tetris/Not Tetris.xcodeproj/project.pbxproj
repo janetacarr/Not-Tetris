@@ -16,6 +16,7 @@
 		A6AE7C0218E9BEF300D5C877 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AE7BFF18E9BEF300D5C877 /* SDL2_mixer.framework */; };
 		A6AE7C0318E9BEF300D5C877 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AE7C0018E9BEF300D5C877 /* SDL2_ttf.framework */; };
 		A6AE7C0918E9E89D00D5C877 /* PlayState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6AE7C0718E9E89D00D5C877 /* PlayState.cpp */; };
+		A6B14B8118F0998900013FD0 /* TetrimoT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6B14B7F18F0998900013FD0 /* TetrimoT.cpp */; };
 		A6B59F0818E8F62900E714BF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4AFC188A0E4300FA5117 /* OpenGL.framework */; };
 		A6B59F0C18E8F63F00E714BF /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4B04188A0E9800FA5117 /* SDL2.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		63FD4B09188CA35500FA5117 /* GameEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameEngine.cpp; sourceTree = "<group>"; };
 		63FD4B0A188CA35500FA5117 /* GameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
 		63FD4B0C188CC6C800FA5117 /* GameState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		A68F13BB1953697D00AA9B53 /* physics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = physics.h; sourceTree = "<group>"; };
 		A6AE7BFE18E9BEF300D5C877 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 		A6AE7BFF18E9BEF300D5C877 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
 		A6AE7C0018E9BEF300D5C877 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
@@ -53,6 +55,10 @@
 		A6AE7C0618E9DF1500D5C877 /* tetrads.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tetrads.png; sourceTree = "<group>"; };
 		A6AE7C0718E9E89D00D5C877 /* PlayState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayState.cpp; sourceTree = "<group>"; };
 		A6AE7C0818E9E89D00D5C877 /* PlayState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayState.h; sourceTree = "<group>"; };
+		A6AEF58818F21CFA006EB063 /* Tetrimos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tetrimos.png; sourceTree = "<group>"; };
+		A6B14B7E18F0949F00013FD0 /* Tetrimo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tetrimo.h; sourceTree = "<group>"; };
+		A6B14B7F18F0998900013FD0 /* TetrimoT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrimoT.cpp; sourceTree = "<group>"; };
+		A6B14B8018F0998900013FD0 /* TetrimoT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrimoT.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,10 @@
 				6309EF6818DBC8D900709A0C /* InitialState.h */,
 				A6AE7C0718E9E89D00D5C877 /* PlayState.cpp */,
 				A6AE7C0818E9E89D00D5C877 /* PlayState.h */,
+				A6B14B7E18F0949F00013FD0 /* Tetrimo.h */,
+				A68F13BB1953697D00AA9B53 /* physics.h */,
+				A6B14B7F18F0998900013FD0 /* TetrimoT.cpp */,
+				A6B14B8018F0998900013FD0 /* TetrimoT.h */,
 				A6AE7C0418E9DF1500D5C877 /* Textures */,
 			);
 			path = "Not Tetris";
@@ -114,6 +124,7 @@
 		A6AE7C0418E9DF1500D5C877 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				A6AEF58818F21CFA006EB063 /* Tetrimos.png */,
 				A6AE7C0518E9DF1500D5C877 /* somIntro.png */,
 				A6AE7C0618E9DF1500D5C877 /* tetrads.png */,
 			);
@@ -174,6 +185,7 @@
 				6309EF6918DBC8D900709A0C /* InitialState.cpp in Sources */,
 				A6AE7C0918E9E89D00D5C877 /* PlayState.cpp in Sources */,
 				63FD4AF4188A0E2100FA5117 /* main.cpp in Sources */,
+				A6B14B8118F0998900013FD0 /* TetrimoT.cpp in Sources */,
 				630F7D8E18D7F9140001DE46 /* TestState.cpp in Sources */,
 				63FD4B0B188CA35500FA5117 /* GameEngine.cpp in Sources */,
 			);
