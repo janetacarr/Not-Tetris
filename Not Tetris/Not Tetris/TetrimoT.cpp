@@ -13,6 +13,10 @@
 //}
 
 void TetrimoT::init() {
+    std::cout << "init" << std::endl;
+    time = 0.0f;
+    S.x = 20.0f;
+    S.v = 2;
     xPos = 160;
     yPos = 20;
     xVel = 10;
@@ -28,7 +32,10 @@ void TetrimoT::init() {
     acceleration = 1;
 }
 void TetrimoT::buildSprite(GameEngine* game) {
+    std::cout << "building sprite" << std::endl;
     tex = IMG_LoadTexture(&(game->getRenderer()), this->getTexturePath().c_str());
+    time = SDL_GetTicks() / 1000;
+    std::cout << "Time: " << time << std::endl;
 }
 
 bool TetrimoT::firstRun() {
@@ -40,8 +47,14 @@ bool TetrimoT::firstRun() {
     }
 }
 
+
 void TetrimoT::update() {
-    TextDim.y += yVel;
+    std::cout << "update" << std::endl;
+    float newTime = SDL_GetTicks() / 1000 - time;
+    std::cout << "Update time: " << newTime << std::endl;
+    integrate(S, newTime, DELTATIME);
+    TextDim.y = S.x;
+    std::cout << "Position: " << S.x << std::endl;
 }
 
 std::string TetrimoT::getTexturePath() {

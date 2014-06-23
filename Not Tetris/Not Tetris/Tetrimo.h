@@ -10,7 +10,8 @@
 #define Not_Tetris_Tetrimo_h
 #include <iostream>
 #include <vector>
-#include "SDL2/SDL.h"
+
+
 
 class Tetrimo{
 public:
@@ -22,17 +23,8 @@ public:
     virtual void setXVelocity(int)=0; //Pixels per frame
     virtual void setYVelocity(int)=0; //Pixels per frame
     
-private:
-    //for use with physics.h
-    struct Derivative {
-        float dv;
-        float dx;
-    };
-    //for use with physics.h
-    struct State {
-        float x;
-        float v;
-    };
+
+    
 protected:
     Tetrimo(){}
 };

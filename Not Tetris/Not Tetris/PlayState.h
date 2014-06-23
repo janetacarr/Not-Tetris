@@ -10,8 +10,9 @@
 #define __Not_Tetris__PlayState__
 #include "GameState.h"
 #include "TetrimoT.h"
-#include "SDL2_image/SDL_image.h"
+//#include "SDL2_image/SDL_image.h"
 #include <iostream>
+
 class PlayState : public GameState {
 public:
     

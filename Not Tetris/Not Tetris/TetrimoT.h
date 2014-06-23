@@ -12,7 +12,11 @@
 #include <iostream>
 #include "GameEngine.h"
 #include "Tetrimo.h"
-//class Tetrimo;
+
+#include "physics.h"
+
+
+
 class TetrimoT : public Tetrimo {
 public:
     void init();
@@ -29,14 +33,14 @@ public:
     void setYVelocity(int); //Pixels per frame
     void update();
     SDL_Texture* tex;
-
     
 private:
-    
+    State S;
     bool firstRunVar = true;
     std::string TexturePath = "/Users/justinacarr/Not-Tetris/Not Tetris/Textures/Tetrimos.png";
     SDL_Rect TextDim;
     SDL_Rect TextPlace;
+    float time;
     int xPos;
     int yPos;
     int xVel;
