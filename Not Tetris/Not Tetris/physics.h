@@ -32,4 +32,6 @@ Derivative evaluate(const State &initial, float t, float dt, const Derivative &d
 
 void integrate(State &state, float t, float dt);
 
+State interpolate(const State &previous, const State &current, float alpha);
+
 #endif

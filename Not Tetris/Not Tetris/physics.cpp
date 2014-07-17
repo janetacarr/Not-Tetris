@@ -49,3 +49,11 @@ void integrate(State &state, float t, float dt)
 	state.x = state.x + dxdt*dt;
 	state.v = state.v + dvdt*dt;
 }
+
+State interpolate(const State &previous, const State &current, float alpha)
+{
+	State state;
+	state.x = current.x*alpha + previous.x*(1-alpha);
+	state.v = current.v*alpha + previous.v*(1-alpha);
+	return state;
+}

@@ -12,8 +12,9 @@
 void TetrimoT::init() {
     std::cout << "init" << std::endl;
     time = 0.0f;
-    S.x = 20.0f;
-    S.v = 0; //Two pixels per second. Sort of works when used with the RK4 integrator.
+    current.x = 20.0f;
+    current.v = 0;
+    previous = current;
     TextDim.x = 160;
     TextDim.y = 20;
     TextDim.w = 60;
@@ -39,17 +40,18 @@ bool TetrimoT::firstRun() {
     }
 }
 
-void TetrimoT::update() {
-    std::cout  << std::endl;
-    float newTime = SDL_GetTicks() / 1000.0f - time;
-    std::cout << "Update time: " << newTime << std::endl;
+void TetrimoT::update(float t, float dt, float accumulator) {
+    previous = current;
+    integrate(current, t, dt);
     
-    integrate(S, newTime, DELTATIME);
-    time = newTime;
-    //time += DELTATIME;
-    
-    TextDim.y = S.x;
-    std::cout << "Position: " << S.x  << std::endl << "Velocity: " << S.v << std::endl;
+    //Interpolate here.
+    //State state = interpolate(previous, current, accumulator);
+    //TextDim.y = state.x;
+    //std::cout << "Position: " << state.x  << std::endl << "Velocity: " << state.v << std::endl;
+}
+void TetrimoT::interpolateStates(float t, float dt, float accumulator) {
+    State state = interpolate(previous, current, accumulator/dt);
+    TextDim.y = state.x;
 }
 
 std::string TetrimoT::getTexturePath() {

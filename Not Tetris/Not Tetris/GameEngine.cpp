@@ -35,7 +35,9 @@ void GameEngine::init(std::string title, int winWidth, int winHeight) {
     if (mRenderer == nullptr) {
         throw std::runtime_error("Failed to create SDL_Renderer!");
     }
-    
+
+    timer = new Timer();
+    timer->init();
 }
 
 /**************************************************************************************
@@ -106,14 +108,29 @@ void GameEngine::cleanUp() {
     SDL_Quit();
 }
 
-float Timer::createNewTime() {
-    newTime = SDL_GetTicks() / 1000;
-    return newTime;
+void Timer::init() {
+    t = 0.0f;
+    dt = 0.1f;
+	
+    currentTime = 0.0f;
+    accumulator = 0.0f;
+    
+    newTime = 0.0f;
+    frameTime = 0.0f;
+}
+
+void Timer::setNewTime(float in) {
+    this->newTime = in;
+}
+void Timer::createNewTime() {
+    newTime = SDL_GetTicks() / 1000.0f;
+
 }
 
 float Timer::findFrameTime() {
+    //newTime = SDL_GetTicks() / 1000;
     frameTime = newTime - currentTime;
-    
+    currentTime = newTime;
     if (frameTime > 0.25f) {
         frameTime = 0.25f;
     }
@@ -122,7 +139,7 @@ float Timer::findFrameTime() {
 }
 
 void Timer::setCurrentTimeToNewTime() {
-    currentTime = newTime;
+    currentTime = SDL_GetTicks() / 1000;
 }
 
 void Timer::accumulateTime() {

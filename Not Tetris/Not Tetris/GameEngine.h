@@ -21,7 +21,8 @@
 
 class Timer{
 public:
-    float createNewTime();
+    void setNewTime(float in);
+    void createNewTime();
     float findFrameTime();
     void setCurrentTimeToNewTime();
     void accumulateTime();
@@ -32,13 +33,15 @@ public:
     
     float getTime() {return t;}
     
+    void init();
+    
     
 private:
-    float t = 0.0f;
-	float dt = 0.1f;
+    float t;
+	float dt;
 	
-	float currentTime = 0.0f;
-	float accumulator = 0.0f;
+	float currentTime;
+	float accumulator;
     
     float newTime;
     float frameTime;
@@ -83,6 +86,9 @@ public:
     bool running() { return mRunning; }
     void quit() { mRunning = false; }
     
+    //Not very elegant.
+    Timer& getTimer() {return *timer;}
+    
     
     //Self explanatory getters
     SDL_Window& getWindow();
@@ -92,7 +98,7 @@ private:
     //the stack of states, with a unique pointer managing each state's memory. The back of the vector is the top of the stack.
     std::vector<std::unique_ptr<GameState>> states;
     
-    Timer timer;
+    Timer *timer;
     
     bool mRunning;
     SDL_Window* mWindow;

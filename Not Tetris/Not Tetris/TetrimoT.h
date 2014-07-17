@@ -31,11 +31,14 @@ public:
     int getYPosition();
     void setXVelocity(int); //Pixels per frame
     void setYVelocity(int); //Pixels per frame
-    void update();
+    void update(float t, float dt, float accumulator);
     SDL_Texture* tex;
-    
+    void interpolateStates(float t, float dt, float accumulator);
 private:
-    State S;
+    //State S;
+    State current;
+    State previous;
+    
     bool firstRunVar = true;
     std::string TexturePath = "/Users/justinacarr/Not-Tetris/Not Tetris/Textures/Tetrimos.png";
     SDL_Rect TextDim;
