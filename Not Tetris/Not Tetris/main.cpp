@@ -20,18 +20,14 @@ int main()
     game.init("Not Tetris");
     game.pushState(test);
     
-   
     //Main game loop.
     while (game.running()) {
-        
         //Control the frequency at which the game is updated.
-
         game.handleEvents();
         game.update();
         
         //Render as fast as possible on the hardware.
         game.draw();
-        
     }
     
     game.cleanUp();

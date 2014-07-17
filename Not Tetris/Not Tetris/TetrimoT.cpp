@@ -8,9 +8,6 @@
 
 #include "TetrimoT.h"
 
-//TetrimoT::TetrimoT(int xPosition, int yPosition, int xVelocity, int yVelocity) : xPos(xPosition), yPos(yPosition), xVel(xVelocity), yVel(yVelocity) {
-    
-//}
 
 void TetrimoT::init() {
     std::cout << "init" << std::endl;

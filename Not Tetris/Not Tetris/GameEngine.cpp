@@ -105,3 +105,28 @@ void GameEngine::cleanUp() {
     IMG_Quit();
     SDL_Quit();
 }
+
+float Timer::createNewTime() {
+    newTime = SDL_GetTicks() / 1000;
+    return newTime;
+}
+
+float Timer::findFrameTime() {
+    frameTime = newTime - currentTime;
+    
+    if (frameTime > 0.25f) {
+        frameTime = 0.25f;
+    }
+    
+    return frameTime;
+}
+
+void Timer::setCurrentTimeToNewTime() {
+    currentTime = newTime;
+}
+
+void Timer::accumulateTime() {
+    accumulator += frameTime;
+}
+
+
