@@ -10,11 +10,8 @@
 #include "GameEngine.h"
 #include "InitialState.h"
 
-int main(int argc, const char * argv[])
+int main()
 {
-    const int TICKS_PER_SECOND = 25;
-    const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-    const int MAX_FRAMESKIP = 5; //may have to be bigger. like 10 or 12.
     InitialState* test = new InitialState();
     //Declare and initialize game engine
     GameEngine game;
@@ -23,22 +20,14 @@ int main(int argc, const char * argv[])
     game.init("Not Tetris");
     game.pushState(test);
     
-    int next_game_tick = SDL_GetTicks();
-    int loops;
    
     //Main game loop.
     while (game.running()) {
         
         //Control the frequency at which the game is updated.
-        loops = 0;
-        while (SDL_GetTicks() > next_game_tick && loops < MAX_FRAMESKIP) {
-            game.handleEvents();
-            game.update();
-          
-            next_game_tick += SKIP_TICKS;
-            loops++;
-            
-        }
+
+        game.handleEvents();
+        game.update();
         
         //Render as fast as possible on the hardware.
         game.draw();

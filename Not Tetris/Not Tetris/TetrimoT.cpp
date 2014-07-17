@@ -16,11 +16,7 @@ void TetrimoT::init() {
     std::cout << "init" << std::endl;
     time = 0.0f;
     S.x = 20.0f;
-    S.v = 2;
-    xPos = 160;
-    yPos = 20;
-    xVel = 10;
-    yVel = 2;
+    S.v = 0; //Two pixels per second. Sort of works when used with the RK4 integrator.
     TextDim.x = 160;
     TextDim.y = 20;
     TextDim.w = 60;
@@ -29,7 +25,6 @@ void TetrimoT::init() {
     TextPlace.y = 20;
     TextPlace.w = 60;
     TextPlace.h = 40;
-    acceleration = 1;
 }
 void TetrimoT::buildSprite(GameEngine* game) {
     std::cout << "building sprite" << std::endl;
@@ -47,14 +42,17 @@ bool TetrimoT::firstRun() {
     }
 }
 
-
 void TetrimoT::update() {
-    std::cout << "update" << std::endl;
-    float newTime = SDL_GetTicks() / 1000 - time;
+    std::cout  << std::endl;
+    float newTime = SDL_GetTicks() / 1000.0f - time;
     std::cout << "Update time: " << newTime << std::endl;
+    
     integrate(S, newTime, DELTATIME);
+    time = newTime;
+    //time += DELTATIME;
+    
     TextDim.y = S.x;
-    std::cout << "Position: " << S.x << std::endl;
+    std::cout << "Position: " << S.x  << std::endl << "Velocity: " << S.v << std::endl;
 }
 
 std::string TetrimoT::getTexturePath() {
@@ -75,11 +73,11 @@ std::vector<SDL_Rect> TetrimoT::getAABB(){
 }
 
 int TetrimoT::getXPosition() {
-    return xPos;
+    return TextDim.x;
 }
 
 int TetrimoT::getYPosition() {
-    return yPos;
+    return TextDim.y;
 }
 
 void TetrimoT::setXVelocity(int deltaX) {

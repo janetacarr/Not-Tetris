@@ -11,8 +11,8 @@
 float acceleration(const State state, float t)
 {
     
-	const float k = 1;
-	const float b = 1;
+	const float k = 1; //Spring constant
+	const float b = 1; //damping coefficient  
 	return k * state.x - b*state.v;
     
 }
