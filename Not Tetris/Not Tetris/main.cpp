@@ -25,25 +25,20 @@ int main()
         
         game.getTimer().createNewTime();
         game.getTimer().findFrameTime();
-        //game.getTimer().setCurrentTimeToNewTime();
+        
         game.getTimer().accumulateTime();
         
         //game.handleEvents();
         //Control the frequency at which the game is updated.
         while (game.getTimer().getAccumulator() >= game.getTimer().getTimeStep()) {
-            
+            //
             game.handleEvents();
             game.getTimer().consumeTime();
             game.update();
             game.getTimer().advanceTime();
         }
-        //Interpolation should happen before render.
-        //game.handleEvents();
-        //game.update();
         
-        
-        
-        //Render as fast as possible on the hardware.
+        //Render as fast as possible on the hardware. current state at top of stack will probably have to interpolate sprite movement.
         game.draw();
     }
     

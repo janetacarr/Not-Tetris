@@ -1,21 +1,20 @@
 //
-//  TetrimoT.h
+//  TetirmoI.h
 //  Not Tetris
 //
-//  Created by Justin Carr on 2014-04-05.
+//  Created by Justin Carr on 2014-07-31.
 //  Copyright (c) 2014 Justin Carr. All rights reserved.
 //
 
-#ifndef __Not_Tetris__TetrimoT__
-#define __Not_Tetris__TetrimoT__
+#ifndef __Not_Tetris__TetrimoI__
+#define __Not_Tetris__TetrimoI__
 
 #include <iostream>
 #include "Tetrimo.h"
 
-class TetrimoT : public Tetrimo {
+class TetrimoI : public Tetrimo {
 public:
-    
-    TetrimoT(GameEngine* game);
+    TetrimoI(GameEngine* game);
     
     //Slated for deletion from all tetrimo subclasses.
     void init();
@@ -47,7 +46,7 @@ public:
     void rotateCounterClockWise();
     void faceUp();
     void faceDown();
-    
+
 private:
     //State S;
     State current;
@@ -68,4 +67,5 @@ private:
     
 };
 
-#endif /* defined(__Not_Tetris__TetrimoT__) */
+
+#endif /* defined(__Not_Tetris__TetrimoI__) */

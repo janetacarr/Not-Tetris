@@ -18,6 +18,7 @@
 		A6AE7C0318E9BEF300D5C877 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AE7C0018E9BEF300D5C877 /* SDL2_ttf.framework */; };
 		A6AE7C0918E9E89D00D5C877 /* PlayState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6AE7C0718E9E89D00D5C877 /* PlayState.cpp */; };
 		A6B14B8118F0998900013FD0 /* TetrimoT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6B14B7F18F0998900013FD0 /* TetrimoT.cpp */; };
+		A6B2EFFC1989F9E000E11CB5 /* TetrimoI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6B2EFFA1989F9E000E11CB5 /* TetrimoI.cpp */; };
 		A6B59F0818E8F62900E714BF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4AFC188A0E4300FA5117 /* OpenGL.framework */; };
 		A6B59F0C18E8F63F00E714BF /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FD4B04188A0E9800FA5117 /* SDL2.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,8 @@
 		A6B14B7E18F0949F00013FD0 /* Tetrimo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tetrimo.h; sourceTree = "<group>"; };
 		A6B14B7F18F0998900013FD0 /* TetrimoT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrimoT.cpp; sourceTree = "<group>"; };
 		A6B14B8018F0998900013FD0 /* TetrimoT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrimoT.h; sourceTree = "<group>"; };
+		A6B2EFFA1989F9E000E11CB5 /* TetrimoI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrimoI.cpp; sourceTree = "<group>"; };
+		A6B2EFFB1989F9E000E11CB5 /* TetrimoI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrimoI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,11 +117,13 @@
 				6309EF6818DBC8D900709A0C /* InitialState.h */,
 				A6AE7C0718E9E89D00D5C877 /* PlayState.cpp */,
 				A6AE7C0818E9E89D00D5C877 /* PlayState.h */,
-				A6B14B7E18F0949F00013FD0 /* Tetrimo.h */,
 				A68F13BB1953697D00AA9B53 /* physics.h */,
 				A6AC6F8B1957CA3C003CD303 /* physics.cpp */,
+				A6B14B7E18F0949F00013FD0 /* Tetrimo.h */,
 				A6B14B7F18F0998900013FD0 /* TetrimoT.cpp */,
 				A6B14B8018F0998900013FD0 /* TetrimoT.h */,
+				A6B2EFFA1989F9E000E11CB5 /* TetrimoI.cpp */,
+				A6B2EFFB1989F9E000E11CB5 /* TetrimoI.h */,
 				A6AE7C0418E9DF1500D5C877 /* Textures */,
 			);
 			path = "Not Tetris";
@@ -187,6 +192,7 @@
 			files = (
 				6309EF6918DBC8D900709A0C /* InitialState.cpp in Sources */,
 				A6AE7C0918E9E89D00D5C877 /* PlayState.cpp in Sources */,
+				A6B2EFFC1989F9E000E11CB5 /* TetrimoI.cpp in Sources */,
 				63FD4AF4188A0E2100FA5117 /* main.cpp in Sources */,
 				A6AC6F8C1957CA3C003CD303 /* physics.cpp in Sources */,
 				A6B14B8118F0998900013FD0 /* TetrimoT.cpp in Sources */,

@@ -10,6 +10,7 @@
 #define __Not_Tetris__PlayState__
 #include "GameState.h"
 #include "TetrimoT.h"
+#include "TetrimoI.h"
 //#include "SDL2_image/SDL_image.h"
 #include <iostream>
 
@@ -25,7 +26,13 @@ public:
     void handleEvents(GameEngine* game);
     void update(GameEngine* game);
     void draw(GameEngine* game);
-
-    TetrimoT* mT;
+    
+private:
+    bool stupidSwitch;
+    bool firstRun;
+    std::vector<std::unique_ptr<Tetrimo>> tetrimoStack;
+    std::unique_ptr<Tetrimo> mT;
+    
+    
 };
 #endif /* defined(__Not_Tetris__PlayState__) */
