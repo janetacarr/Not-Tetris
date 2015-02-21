@@ -16,6 +16,8 @@ struct State
 {
 	float x;
 	float v;
+    float mass;
+    float inverseMass;
 };
 
 struct Derivative

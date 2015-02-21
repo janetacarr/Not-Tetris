@@ -27,6 +27,8 @@ public:
     std::string getTexturePath();
     SDL_Rect getTextureDimensions();
     SDL_Rect getTexturePlace();
+    
+    void updateAABB();
     std::vector<SDL_Rect> getAABB();
     
     //Self explanatory, Although doesn't function as you would expect.
@@ -36,7 +38,7 @@ public:
     void setYVelocity(float); //Pixels per frame
     
     //Update for drawing phase
-    void update(float t, float dt, float accumulator);
+    void update(float t, float dt, float accumulator, std::vector<std::unique_ptr<Tetrimo>>& tetrimoStack);
     
     //Drawing phase methods.
     void interpolateStates(float t, float dt, float accumulator);
@@ -47,17 +49,34 @@ public:
     void rotateCounterClockWise();
     void faceUp();
     void faceDown();
+    void checkCollision(Tetrimo* particle); // for Y movement collisions only.
+    bool checkCollision(const std::vector<std::unique_ptr<Tetrimo>>&); //for X movement collisions only.
     
 private:
-    //State S;
+    //Two states to integrate and interpolate between for update and drawing phases.
     State current;
     State previous;
     
+    //Orientation of texture as a
+    SDL_RendererFlip flipType;
+    
+    //Axis aligned bounding boxes
+    std::vector<SDL_Rect> AABB;
+    
+    //The texture from the spritesheet
     SDL_Texture* tex;
+    
     bool firstRunVar = true;
+    
     std::string TexturePath = "/Users/justinacarr/Not-Tetris/Not Tetris/Textures/Tetrimos.png";
+    
+    //Texture dimensions to be clipped from the spritesheet when rendered.
     SDL_Rect TextDim;
+    
+    //Texture's place on screen, functions as destination rectangle on the renderer
     SDL_Rect TextPlace;
+    
+    //Misc. Possibly slated for deletion.
     float time;
     int xPos;
     int yPos;
@@ -65,6 +84,7 @@ private:
     int yVel;
     int acceleration;
     const int maxVelocity = 20;
+    int yCap;
     
 };
 

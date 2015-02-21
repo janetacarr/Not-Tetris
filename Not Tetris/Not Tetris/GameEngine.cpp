@@ -110,7 +110,7 @@ void GameEngine::cleanUp() {
 
 void Timer::init() {
     t = 0.0f;
-    dt = 0.1f;
+    dt = 0.01f;
 	
     currentTime = 0.0f;
     accumulator = 0.0f;

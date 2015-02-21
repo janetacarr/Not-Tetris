@@ -35,21 +35,27 @@ void PlayState::handleEvents(GameEngine* game) {
         if (e.key.keysym.sym == SDLK_SPACE) {
             //SDL is polling two events when there is actually only one, here is a work around that seems to work.
             if (stupidSwitch) {
-                tetrimoStack.push_back(std::move(mT)); //Standard library move function to force move constructor.
+                tetrimoStack.push_back(std::move(mT)); //Standard library move function to cast to a rvalue reference.
                 std::cout << "Pushed onto the stack" << std::endl;
-                mT = std::unique_ptr<Tetrimo>{new TetrimoI(game)};
+                mT = std::unique_ptr<Tetrimo>{new TetrimoT(game)};
                 stupidSwitch = false;
             } else {
                 stupidSwitch = true;
             }
         }
         if (e.key.keysym.sym == SDLK_UP) {
-            mT = std::move(tetrimoStack.back());
-            tetrimoStack.pop_back();
+            if (stupidSwitch) {
+                mT = std::move(tetrimoStack.back());
+                tetrimoStack.pop_back();
+                stupidSwitch = false;
+            } else {
+                stupidSwitch = true;
+            }
         }
         if (e.key.keysym.sym == SDLK_RIGHT) {
             if (stupidSwitch) {
                 mT->setXVelocity(20);
+                
                 stupidSwitch = false;
             } else {
                 stupidSwitch = true;
@@ -58,6 +64,7 @@ void PlayState::handleEvents(GameEngine* game) {
         if (e.key.keysym.sym == SDLK_LEFT) {
             if (stupidSwitch) {
                 mT->setXVelocity(-20);
+                
                 stupidSwitch = false;
             } else {
                 stupidSwitch = true;
@@ -69,11 +76,11 @@ void PlayState::handleEvents(GameEngine* game) {
 void PlayState::update(GameEngine* game) {
     
     if (firstRun) {
-        mT = std::unique_ptr<Tetrimo>{new TetrimoT(game)};
+        mT = std::unique_ptr<Tetrimo>{new TetrimoI(game)};
         firstRun = false;
     }
-    mT->update(game->getTimer().getTime(), game->getTimer().getTimeStep(), game->getTimer().getAccumulator());
     
+    mT->update(game->getTimer().getTime(), game->getTimer().getTimeStep(), game->getTimer().getAccumulator(), tetrimoStack);
 }
 
 void PlayState::draw(GameEngine* game) {

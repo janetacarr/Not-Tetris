@@ -23,6 +23,17 @@ TetrimoI::TetrimoI(GameEngine* game) {
     TextPlace.y = 20;
     TextPlace.w = 20;
     TextPlace.h = 80;
+    yCap = 400;
+    
+    //Axis Aligned bounding boxes for this tetrimo
+    AABB = {
+        {
+            this->getXPosition(),
+            this->getYPosition(),
+            20,
+            80
+        }
+    };
 }
 
 void TetrimoI::init() {
@@ -46,8 +57,7 @@ SDL_Rect TetrimoI::getTexturePlace() {
 }
 
 std::vector<SDL_Rect> TetrimoI::getAABB(){
-    std::vector<SDL_Rect> v;
-    return v;
+    return AABB;
 }
 
 int TetrimoI::getXPosition() {
@@ -68,16 +78,40 @@ void TetrimoI::setYVelocity(float deltaY) {
     //yVel +=deltaY;
     return;
 }
+
+void TetrimoI::updateAABB() {
+    AABB = {
+        {
+            this->getXPosition(),
+            this->getYPosition(),
+            20,
+            80
+        }
+    };
+}
+
 //Integrate acceleration.
-void TetrimoI::update(float t, float dt, float accumulator) {
+void TetrimoI::update(float t, float dt, float accumulator, std::vector<std::unique_ptr<Tetrimo>>& tetrimoStack) {
     previous = current;
     integrate(current, t, dt);
+    
+    //Update collider boxes after integrating state.
+    updateAABB();
+    
+    //Check for the collisions
+    for (auto& x: tetrimoStack ) {
+        this->checkCollision(x.get());
+    }
+    
+    //Cap the position on screen.
     if (current.v > 50) {   //Toy velocity limit
         current.v = 50;
     }
-    if (current.x >= 440) { //Toy distance limit.
-        current.x = 440;
+    if (current.x >= yCap) { //Toy distance limit.
+        current.x = yCap;
+        current.v = 0;
     }
+    
 }
 
 //Drawing phase.
@@ -109,4 +143,87 @@ void TetrimoI::faceUp() {
 
 void TetrimoI::faceDown() {
     return;
+}
+
+bool TetrimoI::checkCollision(const std::vector<std::unique_ptr<Tetrimo>>& tetrimoStack) {
+    for (auto& x : tetrimoStack ) {
+        updateAABB();
+        
+        int leftA, leftB;
+        int rightA, rightB;
+        int topA, topB;
+        int bottomA, bottomB;
+        bool collision = true;
+        
+        for (auto& a: AABB ) {
+            leftA = a.x;
+            rightA = a.x + a.w;
+            topA = a.y;
+            bottomA = a.y + a.h;
+            
+            for (auto& b: x->getAABB()) {
+                leftB = b.x;
+                rightB = b.x + b.w;
+                topB = b.y;
+                bottomB = b.y + b.h;
+                
+                if( bottomA <= topB ) {
+                    collision = false;
+                }
+                if( topA >= bottomB ) {
+                    collision = false;
+                }
+                if( rightA <= leftB ) {
+                    collision = false;
+                }
+                if( leftA >= rightB ) {
+                    collision = false;
+                }
+                return collision;
+            }
+        }
+    }
+    return false;
+}
+
+void TetrimoI::checkCollision(Tetrimo* particle) {
+    updateAABB();
+    
+    int leftA, leftB;
+    int rightA, rightB;
+    int topA, topB;
+    int bottomA, bottomB;
+    bool collision = true;
+    
+    for (auto& a: AABB ) {
+        leftA = a.x;
+        rightA = a.x + a.w;
+        topA = a.y;
+        bottomA = a.y + a.h;
+        
+        for (auto& b: particle->getAABB()) {
+            leftB = b.x;
+            rightB = b.x + b.w;
+            topB = b.y;
+            bottomB = b.y + b.h;
+            
+            if( bottomA <= topB ) {
+                collision = false;
+            }
+            if( topA >= bottomB ) {
+                collision = false;
+            }
+            if( rightA <= leftB ) {
+                collision = false;
+            }
+            if( leftA >= rightB ) {
+                collision = false;
+            }
+            //if there is a collision cap the textures y position.
+            if (collision) {
+                int distanceFrom = this->getTexturePlace().y - a.y;
+                yCap = b.y - a.h + distanceFrom;
+            }
+        }
+    }
 }

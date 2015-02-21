@@ -31,7 +31,7 @@ public:
     virtual void setYVelocity(float)=0; 
     
     //Simulate falling. The two states are interpolated in the drawing phase below.
-    virtual void update(float t, float dt, float accumulator)=0;
+    virtual void update(float t, float dt, float accumulator, std::vector<std::unique_ptr<Tetrimo>>& tetrimoStack)=0;
     
     //Drawing methods, for the drawing phase.
     virtual void interpolateStates(float t, float dt, float accumulator)=0;
@@ -42,6 +42,8 @@ public:
     virtual void rotateCounterClockWise()=0;//Same ^
     virtual void faceUp()=0; //Should flip texture's place on screen, also flips the AABB for the tetrimo */
     virtual void faceDown()=0;
+    virtual void checkCollision(Tetrimo*)=0;
+    virtual bool checkCollision(const std::vector<std::unique_ptr<Tetrimo>>&)=0;
     
 protected:
     Tetrimo() {}
